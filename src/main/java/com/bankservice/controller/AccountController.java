@@ -40,9 +40,10 @@ public class AccountController {
         accountService.deleteAccount(id);
     }
 
-    @GetMapping("/{id}/balance")
-    public BigDecimal getBalance(@PathVariable Long id){
-        return accountService.findAccountById(id).getBalance();
-    }
+//    @GetMapping("/{id}/balance")
+//    public BigDecimal getBalance(@PathVariable Long id){
+//        BigDecimal balance = accountService.findAccountById(id).getBalance();
+//        return balance;
+//    }balance
 
 }
