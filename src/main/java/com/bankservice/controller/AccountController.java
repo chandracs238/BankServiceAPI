@@ -5,7 +5,6 @@ import com.bankservice.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -39,11 +38,5 @@ public class AccountController {
     public void deleteAccountById(@PathVariable Long id){
         accountService.deleteAccount(id);
     }
-
-//    @GetMapping("/{id}/balance")
-//    public BigDecimal getBalance(@PathVariable Long id){
-//        BigDecimal balance = accountService.findAccountById(id).getBalance();
-//        return balance;
-//    }balance
 
 }
