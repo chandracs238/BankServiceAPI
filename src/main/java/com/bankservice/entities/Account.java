@@ -1,4 +1,4 @@
-package com.bankservice.model;
+package com.bankservice.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -95,6 +95,14 @@ public class Account {
 
     public void setTransactions(List<Transaction> transactions) {
         this.transactions = transactions;
+    }
+
+    public void addMoney(BigDecimal amount){
+       balance = balance.add(amount);
+    }
+
+    public void withdraw(BigDecimal amount){
+        balance = balance.subtract(amount);
     }
 
     @Override
