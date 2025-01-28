@@ -10,7 +10,6 @@ import java.util.List;
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
     private Long customerId;
 
     @Column(nullable = false)
@@ -19,15 +18,27 @@ public class Customer {
     @Column(nullable = false, unique = true)
     private String email;
 
+    @Column(nullable = false)
+    private String password;
+
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Account> accounts;
 
     public Customer(){}
 
-    public Customer(String customerName, String email) {
+    public Customer(String customerName, String email, String password) {
         this.customerName = customerName;
         this.email = email;
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Long getCustomerId() {

@@ -7,7 +7,6 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
-
 @Entity
 @Table(name = "accounts")
 public class Account {
@@ -31,7 +30,8 @@ public class Account {
     @JsonIgnore
     private List<Transaction> transactions;
 
-    public Account(){}
+    public Account() {
+    }
 
     public Account(AccountType accountType, BigDecimal balance, LocalDate createdAt, Customer customer, Branch branch) {
         this.accountType = accountType;
@@ -96,12 +96,16 @@ public class Account {
     public void setTransactions(List<Transaction> transactions) {
         this.transactions = transactions;
     }
-
-    public void addMoney(BigDecimal amount){
-       balance = balance.add(amount);
+    
+    public void addTransactions(Transaction transaction){
+        this.transactions.add(transaction);
     }
 
-    public void withdraw(BigDecimal amount){
+    public void addMoney(BigDecimal amount) {
+        balance = balance.add(amount);
+    }
+
+    public void withdraw(BigDecimal amount) {
         balance = balance.subtract(amount);
     }
 
